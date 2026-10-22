@@ -1,0 +1,10 @@
+{
+  "name": "scm-pages-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint script.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  }
+}
