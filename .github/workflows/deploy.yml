@@ -23,7 +23,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: lint                     # ← test runs only after lint passes
+    needs: lint
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -35,7 +35,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [lint, test]             # ← deploy only if BOTH lint and test pass
+    needs: [lint, test]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -44,6 +44,6 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .              # your static site files are in the repo root
+          path: .
       - id: deployment
         uses: actions/deploy-pages@v4
